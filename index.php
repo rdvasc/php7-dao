@@ -47,7 +47,7 @@ $aluno = new Usuario("Roberto","582410");
 $aluno->insert();
 echo $aluno;
 */
-
+/*
 $usuario = new Usuario();
 $usuario->loadById(5);
 echo $usuario;
@@ -55,6 +55,11 @@ echo $usuario;
 echo "<br/>";
 $usuario->update("Roberto","241058");
 echo $usuario;
+*/
 
+$usuario = new Usuario();
+$usuario->loadById(4);
+$usuario->delete();
+echo $usuario;
 
  ?>

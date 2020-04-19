@@ -94,7 +94,7 @@ public static function search($login) {
 
 public  static function getList() {
 	$sql = new sql();
-	return $sql->select("SELECT * FROM tb_usuarios ORDER BY deslogin;");
+	return $sql->select("SELECT * FROM tb_usuarios ORDER BY deslogin");
 }
 
 
@@ -120,14 +120,17 @@ public function update($login, $password) {
 		':PASSWORD'=>$this->getDessenha(),
 		':ID'=>$this->getIdusuario()
 	));
-
-
-
-
 }
 
+public function delete() {
+	$sql = new Sql();
+	$sql->query("DELETE FROM tb_usuarios WHERE idusuario = :ID", array(':ID'=>$this->getIdusuario()));
 
-
+	$this->setIdusuario(0);
+	$this->setDeslogin("");
+	$this->setDessenha("");
+	$this->setDtcadastro(new DateTime());
+}
 
 
 }
